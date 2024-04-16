@@ -26,7 +26,48 @@ This commands includes
 • Other IP Commands e.g. show ip route etc.
 <BR>
 
-## Output
+## Program :
+### Client :
+```
+import socket 
+from pythonping import ping 
+s=socket.socket() 
+s.bind(('localhost'8000)) 
+s.listen(5) 
+c,addr=s.accept() 
+while True: 
+    hostname=c.recv(1024).decode() 
+    try: 
+        c.send(str(ping(hostname, verbose=False)).encode()) 
+    except KeyError: 
+        c.send("Not Found".encode())
+```
+### Server :
+```
+import socket 
+s=socket.socket() 
+s.connect(('localhost',8000)) 
+while True: 
+    ip=input("Enter the website you want to ping ") 
+    s.send(ip.encode()) 
+    print(s.recv(1024).decode())
+```
+### Tranceroute Command :
+```
+from scapy.all import* 
+target = ["www.google.com"] 
+result, unans = traceroute(target,maxttl=32) 
+print(result,unans)
+```
+## Output :
+### Client :
+![Screenshot 2024-04-16 154824](https://github.com/Rogith08/4.Execution_of_NetworkCommends/assets/162728044/d1339e44-c59c-4bb7-b8ea-b637a891d297)
 
-## Result
+### Server :
+![Screenshot 2024-04-16 154848](https://github.com/Rogith08/4.Execution_of_NetworkCommends/assets/162728044/23636298-03c1-440c-b3e2-96f152b87f3e)
+
+### Tranceroute :
+![Screenshot 2024-04-16 154910](https://github.com/Rogith08/4.Execution_of_NetworkCommends/assets/162728044/b563986a-0db3-49d6-aa0e-fa4e7e87fb88)
+
+## Result :
 Thus Execution of Network commands Performed 
