@@ -52,7 +52,7 @@ while True:
     s.send(ip.encode()) 
     print(s.recv(1024).decode())
 ```
-### Tranceroute Command :
+### Traceroute Command :
 ```
 from scapy.all import* 
 target = ["www.google.com"] 
@@ -66,7 +66,7 @@ print(result,unans)
 ### Server :
 ![Screenshot 2024-04-16 154848](https://github.com/Rogith08/4.Execution_of_NetworkCommends/assets/162728044/23636298-03c1-440c-b3e2-96f152b87f3e)
 
-### Tranceroute :
+### Traceroute :
 ![Screenshot 2024-04-16 154910](https://github.com/Rogith08/4.Execution_of_NetworkCommends/assets/162728044/b563986a-0db3-49d6-aa0e-fa4e7e87fb88)
 
 ## Result :
